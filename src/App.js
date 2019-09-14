@@ -1,24 +1,20 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import World from './World/World';
+import View from './World/View';
+import useKeys from './useKeys';
 
-function App() {
+const App = () => {
+  const state = useKeys(9, 4, -5);
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        Craft engine
       </header>
+      <View>
+        <World {...state}/>
+      </View>
     </div>
   );
 }

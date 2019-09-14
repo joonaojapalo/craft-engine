@@ -1,0 +1,89 @@
+.world {
+  position: absolute;
+  transform-style: preserve-3d;
+  transition: transform 0.2s;
+/*  transform: translate3d(10px, 10px, -100px) rotate3d(0,1,0,10deg);
+/*  animation: rotate 3s linear infinite;*/
+/*  animation: slide 3s linear infinite;*/
+}
+
+$w: 50px;
+$face-alpha: 0.8;
+
+.cube {
+  transform-style: preserve-3d;
+  position: absolute;
+  transform: translate3d(-$w/2, -$w/2, -$w/2);
+}
+
+.face {
+  width: $w;
+  height: $w;
+  background: gray;
+  position: absolute;
+  backface-visibility: hidden;
+}
+
+.face-1 {
+  transform: rotateX(0deg) translateZ($w / 2) ;
+  background-color: rgba(100,100,255,$face-alpha);
+}
+
+.face-2 {
+  transform: rotateX(180deg) translateZ($w / 2) ;
+  background-color: rgba(100,100,255,$face-alpha);
+}
+
+.face-3 {
+  transform: rotateX(90deg) translateZ($w / 2);
+  background-color: rgba(255,100,100,$face-alpha);
+}
+
+.face-4 {
+  transform: rotateX(270deg) translateZ($w / 2);
+  background-color: rgba(255,100,100,$face-alpha);
+}
+
+.face-5 {
+  transform: rotateY(90deg) translateZ($w / 2);
+  background-color: rgba(100,255,100,$face-alpha);
+}
+
+.face-6 {
+  transform: rotateY(270deg) translateZ($w / 2);
+  background-color: rgba(100,255,100,$face-alpha);
+}
+
+.object {
+  position: absolute;
+  transform-style: preserve-3d;
+}
+
+.object-1 {
+    transform: translate3d(1 * $w, 1 * $w, 0);
+}
+
+.object-2 {
+    transform: translate3d(2 * $w, 1 * $w, 0);
+}
+
+@keyframes rotate {
+  from {
+    transform: translate3d(100px, 20px, 0) rotate3d(1,1,1,0deg);
+  }
+  
+  to {
+    transform: translate3d(100px, 20px, 0) rotate3d(0,1,0,360deg);    
+  }
+}
+
+
+@keyframes slide {
+  from {
+    transform: translate3d(100px, 150px, -100px) rotate3d(0,1,0,10deg);
+  }
+  
+  to {
+    transform: translate3d(90v, 150px, -100px) 
+  }
+}
