@@ -50,17 +50,24 @@ const useKeys = (posX, posY, posZ) => {
     };
 
     window.document.onclick = (ev) => {
-      if (ev.clientX > 3*document.body.clientWidth / 4) {
+      const w = document.body.clientWidth;
+      const h = document.body.clientHeight;
+      console.log(ev.clientX, ev.clientY, w, h)
+      if (ev.clientX > 3 * w / 4) {
           dispatch(keyRight());
+          return;
       }
-      if (ev.clientX < document.body.clientWidth / 4) {
+      if (ev.clientX < w / 4) {
           dispatch(keyLeft());
+          return;
       }
-      if (ev.clientY > 3*document.body.clientHeight / 4) {
+      if (ev.clientY > 3 *h / 4) {
           dispatch(keyDown());
+          return;
       }
-      if (ev.clientY < document.body.clientHeight / 4) {
+      if (ev.clientY < h / 4) {
           dispatch(keyUp());
+          return;
       }
     }
   });
